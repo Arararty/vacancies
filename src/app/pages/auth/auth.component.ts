@@ -22,7 +22,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './auth.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
   isSubmitBtnDisabled = true;
   showPassword: boolean = true;
   formService = inject(FormService);
@@ -33,8 +33,6 @@ export class AuthComponent implements OnInit {
   constructor() {
     this.authForm = this.formService.authFormGroup;
   }
-
-  ngOnInit(): void {}
 
   toogleShowPassword(): void {
     this.showPassword = !this.showPassword;
@@ -53,7 +51,6 @@ export class AuthComponent implements OnInit {
       if (this.password?.value !== this.authService.mockPassword) {
         this.password?.setErrors({ invalidPassword: true });
       }
-      console.log(this.authForm);
     }
   }
 
