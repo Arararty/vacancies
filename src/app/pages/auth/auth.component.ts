@@ -1,13 +1,6 @@
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthForm } from './../../interfaces/auth-form.interface';
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Inject,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormService } from '../../services/form.service';
 import { CommonModule } from '@angular/common';
 import { TuiModule } from '../../shared/tui/tui.module';
@@ -27,7 +20,6 @@ export class AuthComponent {
   showPassword: boolean = true;
   formService = inject(FormService);
   authService = inject(AuthService);
-  cdr = inject(ChangeDetectorRef);
   authForm!: FormGroup<AuthForm>;
 
   constructor() {
@@ -38,19 +30,21 @@ export class AuthComponent {
     this.showPassword = !this.showPassword;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (
       this.email?.value === this.authService.validEmail &&
       this.password?.value === this.authService.mockPassword
     ) {
       this.authService.setAuth();
-    } else {
-      if (this.email?.value !== this.authService.validEmail) {
-        this.email?.setErrors({ invalidEmail: true });
-      }
-      if (this.password?.value !== this.authService.mockPassword) {
-        this.password?.setErrors({ invalidPassword: true });
-      }
+      return;
+    }
+    if (this.email?.value !== this.authService.validEmail) {
+      this.email?.setErrors({ invalidEmail: true });
+      return;
+    }
+    if (this.password?.value !== this.authService.mockPassword) {
+      this.password?.setErrors({ invalidPassword: true });
+      return;
     }
   }
 

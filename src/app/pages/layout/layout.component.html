@@ -1,4 +1,9 @@
-@for (vacancy of vacancies; track vacancy.id) {
-
-{{ vacancy.name }}
-}
+<div class="container">
+  @if(!showLoader) { @for (vacancy of vacancies; track vacancy.id) {
+  <app-vacancy-card [vacancy]="vacancy"></app-vacancy-card>
+  }} @else {
+  <div class="loader-container">
+    <tui-loader></tui-loader>
+  </div>
+  }
+</div>

@@ -4,8 +4,8 @@ import {
   TuiErrorModule,
   TuiRootModule,
   TuiButtonModule,
-  TuiDialogModule,
-  TuiNotificationModule,
+  TuiLoaderModule,
+  tuiLoaderOptionsProvider,
 } from '@taiga-ui/core';
 import {
   TuiInputModule,
@@ -26,6 +26,7 @@ import { of } from 'rxjs';
     TuiFieldErrorPipeModule,
     TuiInputPasswordModule,
     TuiButtonModule,
+    TuiLoaderModule,
   ],
 
   exports: [
@@ -35,6 +36,7 @@ import { of } from 'rxjs';
     TuiFieldErrorPipeModule,
     TuiInputPasswordModule,
     TuiButtonModule,
+    TuiLoaderModule,
   ],
 
   providers: [
@@ -55,6 +57,11 @@ import { of } from 'rxjs';
         hide: 'tuiIconUnlockLarge',
         show: 'tuiIconLockLarge',
       },
+    }),
+    tuiLoaderOptionsProvider({
+      size: 'l',
+      inheritColor: false,
+      overlay: true,
     }),
     {
       provide: TUI_PASSWORD_TEXTS,

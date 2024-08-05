@@ -7,11 +7,13 @@ import {
 import { Subject, takeUntil } from 'rxjs';
 import { Vacancy } from '../../interfaces/vacancies.interface';
 import { HhService } from '../../services/hh.service';
+import { TuiModule } from '../../shared/tui/tui.module';
+import { VacancyCardComponent } from '../../components/vacancy-card/vacancy-card.component';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [],
+  imports: [TuiModule, VacancyCardComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,17 +23,20 @@ export class LayoutComponent {
   hhService = inject(HhService);
   cdr = inject(ChangeDetectorRef);
   vacancies: Vacancy[] = [];
+  showLoader: boolean = false;
 
   ngOnInit(): void {
     this.getVacancies();
   }
 
   getVacancies(): void {
+    this.showLoader = true;
     this.hhService
       .getVacancies()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((res: Vacancy[]) => {
         this.vacancies = res;
+        this.showLoader = false;
         this.cdr.detectChanges();
       });
   }

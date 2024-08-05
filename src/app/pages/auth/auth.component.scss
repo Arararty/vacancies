@@ -1,4 +1,4 @@
-img {
+.auth-image {
   max-width: 100%;
 }
 
@@ -43,38 +43,13 @@ tui-error {
   }
 }
 
-.showPassword {
-  position: absolute;
-  border: none;
-  background: #fff;
-  right: 10px;
-  top: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 2px;
-  &:hover {
-    font-size: 19px;
-  }
-}
-
 .submit-btn {
   margin-top: 36px;
   width: 36%;
 }
 
-@media (min-width: 768px) {
-  .submit-btn {
-    font-size: 24px;
-    min-width: 196px;
-  }
-}
-
-label {
-  margin-bottom: 3px;
-}
-
 @media screen and (max-width: 1030px) {
-  img {
+  .auth-image {
     display: none;
   }
   .auth-wrapper {
