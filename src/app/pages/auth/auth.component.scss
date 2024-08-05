@@ -1,0 +1,92 @@
+img {
+  max-width: 100%;
+}
+
+.container {
+  height: 100dvh;
+  display: grid;
+  align-items: center;
+  padding: 0 20px;
+}
+
+tui-error {
+  width: 60%;
+}
+
+.auth-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  border-radius: 10px;
+  box-shadow: -7px 2px 13px 14px rgba(140, 140, 140, 0.26);
+  overflow: hidden;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-login_input {
+    width: 60%;
+  }
+  &-password_input {
+    margin-top: 20px;
+    width: 60%;
+  }
+}
+
+.showPassword {
+  position: absolute;
+  border: none;
+  background: #fff;
+  right: 10px;
+  top: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 2px;
+  &:hover {
+    font-size: 19px;
+  }
+}
+
+.submit-btn {
+  margin-top: 36px;
+  width: 36%;
+}
+
+@media (min-width: 768px) {
+  .submit-btn {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+
+label {
+  margin-bottom: 3px;
+}
+
+@media screen and (max-width: 1030px) {
+  img {
+    display: none;
+  }
+  .auth-wrapper {
+    display: block;
+    height: 100dvh;
+  }
+
+  .submit-btn {
+    width: 33%;
+  }
+
+  .container {
+    padding: 0;
+  }
+}

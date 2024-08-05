@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="auth-wrapper">
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="form">
+      <tui-input class="form-login_input" formControlName="email">
+        Email
+        <input tuiTextfield type="email" />
+      </tui-input>
+      <tui-error
+        [formControl]="authForm.controls.email"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+
+      <tui-input-password
+        class="form-password_input"
+        formControlName="password"
+        tuiTextfieldSize="m"
+      >
+        Пароль
+        <input tuiTextfield />
+      </tui-input-password>
+
+      <tui-error
+        [formControl]="authForm.controls.password"
+        [error]="[] | tuiFieldError | async"
+      ></tui-error>
+
+      <button
+        [disabled]="this.authForm.invalid"
+        appearance="primary"
+        tuiButton
+        type="submit"
+        class="submit-btn"
+      >
+        Войти
+      </button>
+    </form>
+    <img src="/images/memes.jpg" alt="Image description" />
+  </div>
+</div>
