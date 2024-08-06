@@ -16,7 +16,8 @@ export class AuthService {
   }
 
   setAuth(): void {
-    this.cookieService.set('auth', 'true');
+    const expiresIn = 1 / 48;
+    this.cookieService.set('auth', 'true', expiresIn);
     this.router.navigate(['/vacancies']);
   }
 

@@ -1,10 +1,13 @@
 <div *ngIf="!showLoader; else loader" class="container">
-  <div>
+  <div class="header">
     asda
 
     <button appearance="flat" tuiButton type="button" (click)="logOut()">
       Выйти
     </button>
+  </div>
+  <div class="search-input-wrapper">
+    <tui-input class="search-input"> Поиск вакансий </tui-input>
   </div>
   <div class="vacancy-card-wrapper">
     <app-vacancy-card

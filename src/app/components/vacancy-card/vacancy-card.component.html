@@ -18,18 +18,23 @@
     <span class="vacancy-card-currency">
       {{ vacancy.salary | salaryCurrencyPipe }}
     </span>
-    <span></span>
   </div>
 
-  <div>
-    <span>{{ vacancy.experience.name }}</span>
-    <span>{{ vacancy.employment.name }}</span>
+  <div class="vacancy-card-experience">
+    <span class="experience">{{ vacancy.experience.name }}</span>
+    <span class="employment">{{ vacancy.employment.name }}</span>
   </div>
-  <div>
+  <div class="vacancy-card-requirement">
     {{ vacancy.snippet.requirement }}
   </div>
 
-  <button appearance="primary" tuiButton type="submit" class="submit-btn">
+  <button
+    size="m"
+    appearance="primary"
+    tuiButton
+    type="button"
+    class="vacancy-card-button"
+  >
     Подробнее
   </button>
 </div>
