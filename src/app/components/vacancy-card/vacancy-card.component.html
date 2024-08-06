@@ -1,1 +1,11 @@
-{{ vacancy.name }}
+<div class="vacancy">
+  <div class="vacancy-name">
+    {{ vacancy.name }}
+  </div>
+  <div>
+    <span class="vacancy-salary">{{ vacancy.salary | salaryPipe }}</span>
+    <span class="vacancy-currency">
+      {{ vacancy.salary | salaryCurrencyPipe }}</span
+    >
+  </div>
+</div>

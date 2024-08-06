@@ -1,8 +1,15 @@
 .container {
-  height: 100dvh;
+  padding: 100px 30px;
 }
 
 .loader-container {
   height: 100dvh;
   display: grid;
+}
+
+.vacancy-card-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

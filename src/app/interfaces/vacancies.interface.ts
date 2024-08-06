@@ -30,7 +30,7 @@ export interface Vacancy {
   relations?: [];
   response_letter_required: string;
   response_url: string | null;
-  salary: Salary | null;
+  salary: Salary;
   schedule: IdName;
   snippet: Snippet;
   sort_point_distance: number | null;
@@ -51,7 +51,7 @@ interface IdName {
   name: string;
 }
 
-interface Salary {
+export interface Salary {
   from: number | null;
   currency: string;
   gross: boolean | null;

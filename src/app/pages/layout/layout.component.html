@@ -1,9 +1,21 @@
-<div class="container">
-  @if(!showLoader) { @for (vacancy of vacancies; track vacancy.id) {
-  <app-vacancy-card [vacancy]="vacancy"></app-vacancy-card>
-  }} @else {
+<div *ngIf="!showLoader; else loader" class="container">
+  <div>
+    asda
+
+    <button appearance="flat" tuiButton type="button" (click)="logOut()">
+      Выйти
+    </button>
+  </div>
+  <div class="vacancy-card-wrapper">
+    <app-vacancy-card
+      *ngFor="let vacancy of vacancies"
+      [vacancy]="vacancy"
+    ></app-vacancy-card>
+  </div>
+</div>
+
+<ng-template #loader>
   <div class="loader-container">
     <tui-loader></tui-loader>
   </div>
-  }
-</div>
+</ng-template>

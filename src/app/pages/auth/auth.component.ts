@@ -23,6 +23,7 @@ export class AuthComponent {
   authForm!: FormGroup<AuthForm>;
 
   constructor() {
+    console.log('mockAuth@gmail.com', 'qwe22233');
     this.authForm = this.formService.authFormGroup;
   }
 
