@@ -8,4 +8,11 @@
       {{ vacancy.salary | salaryCurrencyPipe }}</span
     >
   </div>
+
+  <div>
+    {{ vacancy.employer?.name }}
+  </div>
+  <div class="vacancy-logo" *ngIf="vacancy.employer?.logo_urls?.original">
+    <img [src]="vacancy.employer?.logo_urls?.original" alt="" />
+  </div>
 </div>

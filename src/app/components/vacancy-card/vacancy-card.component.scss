@@ -10,4 +10,9 @@
   &-name {
     color: #468ffd;
   }
+  &-logo {
+    img {
+      max-width: 60px;
+    }
+  }
 }
