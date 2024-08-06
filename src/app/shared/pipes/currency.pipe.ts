@@ -15,8 +15,8 @@ export class SalaryCurrencyPipe implements PipeTransform {
   };
 
   transform(value: Salary): string | null {
-    const currency = this.currencySymbols[value.currency] || value.currency;
-    if (value.from) {
+    const currency = this.currencySymbols[value?.currency] || value?.currency;
+    if (value?.from) {
       return currency;
     }
     return null;
