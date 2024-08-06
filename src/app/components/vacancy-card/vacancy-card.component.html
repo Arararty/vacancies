@@ -1,18 +1,35 @@
-<div class="vacancy">
-  <div class="vacancy-name">
-    {{ vacancy.name }}
+<div class="vacancy-card">
+  <div class="flex-wrapper">
+    <div class="vacancy-card-name">
+      {{ vacancy.name }}
+    </div>
+    <div
+      class="vacancy-card-logo"
+      *ngIf="vacancy.employer?.logo_urls?.original"
+    >
+      <img [src]="vacancy.employer?.logo_urls?.[240]" alt="" />
+    </div>
+  </div>
+  <div class="vacancy-card-company-name">
+    {{ vacancy.employer?.name }}
   </div>
   <div class="vacancy-salary-wrapper">
-    <span class="vacancy-salary">{{ vacancy.salary | salaryPipe }}</span>
-    <span class="vacancy-currency">
-      {{ vacancy.salary | salaryCurrencyPipe }}</span
-    >
+    <span class="vacancy-card-salary">{{ vacancy.salary | salaryPipe }}</span>
+    <span class="vacancy-card-currency">
+      {{ vacancy.salary | salaryCurrencyPipe }}
+    </span>
+    <span></span>
   </div>
 
   <div>
-    {{ vacancy.employer?.name }}
+    <span>{{ vacancy.experience.name }}</span>
+    <span>{{ vacancy.employment.name }}</span>
   </div>
-  <div class="vacancy-logo" *ngIf="vacancy.employer?.logo_urls?.original">
-    <img [src]="vacancy.employer?.logo_urls?.original" alt="" />
+  <div>
+    {{ vacancy.snippet.requirement }}
   </div>
+
+  <button appearance="primary" tuiButton type="submit" class="submit-btn">
+    Подробнее
+  </button>
 </div>

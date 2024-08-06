@@ -19,8 +19,10 @@ export interface Vacancy {
   area: Area;
   contacts: Contacts | null;
   created_at: string;
-  department: IdName | null;
+  department: IdName<string> | null;
   employer: Employer | null;
+  employment: IdName<string>;
+  experience: IdName<string>;
   has_test: boolean;
   id: string;
   insider_interview: InsiderInterview | null;
@@ -31,14 +33,14 @@ export interface Vacancy {
   response_letter_required: string;
   response_url: string | null;
   salary: Salary;
-  schedule: IdName;
+  schedule: IdName<string>;
   snippet: Snippet;
   sort_point_distance: number | null;
-  type: IdName;
+  type: IdName<string>;
   url: string;
-  working_days: IdName[];
-  working_time_modes: IdName[];
-  working_time_intervals: IdName[];
+  working_days: IdName<string>[];
+  working_time_modes: IdName<string>[];
+  working_time_intervals: IdName<string>[];
 }
 
 interface Snippet {
@@ -46,8 +48,8 @@ interface Snippet {
   responsibility: string | null;
 }
 
-interface IdName {
-  id: string;
+interface IdName<T> {
+  id: T;
   name: string;
 }
 
@@ -85,7 +87,7 @@ interface MetroStations {
   station_name: string | null;
 }
 
-interface Area extends IdName {
+interface Area extends IdName<string> {
   url: string;
 }
 
@@ -102,7 +104,7 @@ interface Phones {
   comment: string | null;
 }
 
-interface Employer extends IdName {
+interface Employer extends IdName<string> {
   alternate_url: string;
   logo_urls: LogoUrls | null;
   trusted: boolean;

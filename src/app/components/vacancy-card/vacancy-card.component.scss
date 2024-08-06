@@ -2,17 +2,38 @@
   display: block;
   margin-bottom: 30px;
   box-shadow: 0px 5px 10px 4px rgba(0, 0, 0, 0.04);
-  min-height: 270px;
-  width: 700px;
+  max-height: 270px;
+  width: 750px;
+  max-width: 100%;
+  padding: 20px 20px;
 }
 
-.vacancy {
+.vacancy-card {
+  &-company-name {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
   &-name {
     color: #468ffd;
+    font-size: 23px;
+    font-weight: 600;
+    margin-bottom: 16px;
   }
   &-logo {
+    height: 48px;
     img {
-      max-width: 60px;
+      max-width: 70px;
+      max-height: 100%;
     }
   }
+
+  &-salary {
+    font-size: 15px;
+    font-weight: 500;
+  }
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
 }

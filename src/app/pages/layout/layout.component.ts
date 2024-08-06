@@ -44,6 +44,8 @@ export class LayoutComponent {
       .subscribe((res: Vacancy[]) => {
         this.vacancies = res;
         this.showLoader = false;
+        console.log(this.vacancies);
+
         this.cdr.detectChanges();
       });
   }
