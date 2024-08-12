@@ -7,11 +7,13 @@
     </button>
   </div>
   <div class="search-input-wrapper">
-    <tui-input class="search-input"> Поиск вакансий </tui-input>
+    <tui-input [formControl]="searchValue" class="search-input">
+      Поиск вакансий
+    </tui-input>
   </div>
   <div class="vacancy-card-wrapper">
     <app-vacancy-card
-      *ngFor="let vacancy of vacancies"
+      *ngFor="let vacancy of vacancies | vacanciesFilter : searchValue.value"
       [vacancy]="vacancy"
     ></app-vacancy-card>
   </div>

@@ -11,11 +11,19 @@ import { TuiModule } from '../../shared/tui/tui.module';
 import { VacancyCardComponent } from '../../components/vacancy-card/vacancy-card.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { VacanciesFilterPipe } from '../../shared/pipes/vacancies-filter.pipe';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [TuiModule, VacancyCardComponent, CommonModule],
+  imports: [
+    TuiModule,
+    VacancyCardComponent,
+    CommonModule,
+    VacanciesFilterPipe,
+    ReactiveFormsModule,
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,6 +35,9 @@ export class LayoutComponent {
   authService = inject(AuthService);
   vacancies: Vacancy[] = [];
   showLoader: boolean = false;
+  searchValue: FormControl<string | null> = new FormControl<string | null>(
+    null
+  );
 
   ngOnInit(): void {
     this.getVacancies();
